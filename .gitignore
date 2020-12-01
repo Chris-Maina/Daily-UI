@@ -18,6 +18,7 @@ build/Release
 
 # vscode directory
 .vscode
+.DS_Store
 
 # Coverage directory
 coverage
