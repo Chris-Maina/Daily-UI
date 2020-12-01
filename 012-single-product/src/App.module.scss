@@ -1,0 +1,220 @@
+@import './sass/utils.scss';
+
+.App {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: $main-background-color;
+
+
+  &_Product {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    @media screen and (min-width: $small-screen){
+      width: rem(800);
+      height: rem(500);
+    }
+
+    &_Header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid $border-color;
+      padding: rem(0) rem(20);
+
+      &_Logo {
+        fill: $primary;
+        width: rem(70);
+        height: rem(26);
+      }
+
+      h4 {
+        font-size: rem(16);
+      }
+    }
+
+    &_Content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 70px);
+
+      @media screen and(min-width: $small-screen) {
+        flex-direction: row;
+        height: rem(430);
+      }
+
+      &_Right {
+        flex: 1;
+        order: 2;
+        padding: rem(10) rem(25);
+
+        @media screen and(min-width: $small-screen) {
+          order: 0;
+          flex: 0.5;
+          border-right: 1px solid $border-color;
+        }
+
+        h1 {
+          line-height: 0.8;
+          margin-bottom: rem(10);
+        }
+
+        h5 {
+          color: $primary;
+          margin-top: 0px;
+        }
+
+        h1, h5 {
+          text-align: left;
+          text-transform: uppercase;
+        }
+
+        p {
+          text-align: left;
+          color: $text-color;
+          font-size: rem(12);
+          font-weight: 100;
+          line-height: 1.5;
+          white-space: pre-line;
+          margin-bottom: rem(30);
+        }
+
+        button {
+          color: $white;
+          font-weight: bold;
+          font-size: rem(18);
+          text-align: center;
+          background-color: desaturate($primary, 20);
+          text-transform: uppercase;
+          padding: rem(10) rem(15);
+          border: none;
+          width: 100%;
+          min-height: rem(50);
+          outline: none;
+          transition: background-color .125s ease, transform .125s ease;
+
+          &:hover {
+            background-color: lighten($primary, 5);
+            cursor: pointer;
+          }
+
+          &:active {
+            transform: scale(.97);
+          }
+        }
+      }
+      &_Left {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        @media screen and(min-width: $small-screen) {
+          flex: 0.5;
+        }
+
+        &_Dots {
+          position: absolute;
+          bottom: 30px;
+          left: 0;
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 3;
+
+          &_Dot {
+            $size: rem(10);
+            background-color: $border-color;
+            height: $size;
+            width: $size;
+            border-radius: $size;
+            margin: rem(3);
+            &:hover {
+              transform: scale(1.2);
+			        background-color: $primary;
+            }
+          }
+          &_Active {
+            background-color: $primary;
+          }
+        }
+
+        &_Wrapper {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: flex;
+
+          &_Image {
+            width: 100%;
+            margin-right: 2px;
+            height: 430px;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            img {
+              display: block;
+              width: 80%;
+              position: relative;
+              z-index: 2;
+              padding-top: 0px;
+						  transform: scale(1);
+            }
+
+            &_Text {
+              position: absolute;
+              top: rem(28);
+              left: rem(5);
+              color: $border-color;
+              font-size: rem(280);
+              line-height: rem(210);
+              font-weight: 600;
+              opacity: 0.5;
+
+              sub {
+                vertical-align: sub;
+                position: relative;
+              }
+
+              sup {
+                vertical-align: super;
+                position: relative;
+              }
+
+              * {
+                @for $j from 1 through 10 {
+                  $delay: (random(2) * $j) / 2 + 's';
+
+                  &:nth-child(#{$j}) {
+                    animation: pulse $j* 3s infinite;
+                    animation-delay: $delay;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0;
+	}
+	
+	50% {
+		opacity: 1;
+	}
+	
+	100% {
+		opacity: 0;
+	}
+}
