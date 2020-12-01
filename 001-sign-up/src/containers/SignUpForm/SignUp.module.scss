@@ -1,0 +1,29 @@
+@import '../../sass/utils.scss';
+
+.Form {
+  width: rem(500px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &_Control {
+    width: 95%;
+    margin-bottom: rem(4);
+  }
+
+  &_Button {
+    color: $white;
+    width: 100%;
+    text-transform: uppercase;
+    background-color: $primary;
+    &:hover,
+     &:active {
+      background-color: scale-color($primary, $lightness: -20%);
+    }
+    &:focus {
+      outline-style: solid;
+      outline-color: transparent;
+      box-shadow: 0 0 0 3px scale-color($primary, $lightness: -40%);
+    }
+  }
+}

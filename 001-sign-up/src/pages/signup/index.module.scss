@@ -1,0 +1,10 @@
+@import '../../sass/utils.scss';
+
+.Container {
+  background-color: $main_background;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

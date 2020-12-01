@@ -1,0 +1,12 @@
+@import '../../sass/utils.scss';
+
+.Input {
+  background-color: transparent;
+  min-height: rem(34);
+  outline: none;
+  border-width: rem(1);
+  border-radius: rem(4);
+  margin-bottom: rem(10);
+  padding: rem(8) rem(10);
+  width: inherit;
+}
